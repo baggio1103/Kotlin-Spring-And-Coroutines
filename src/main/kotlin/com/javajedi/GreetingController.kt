@@ -8,7 +8,7 @@ class GreetingController {
 
     @GetMapping
     fun hello(): String {
-        return ""
+        return "Hello world"
     }
 
 }
