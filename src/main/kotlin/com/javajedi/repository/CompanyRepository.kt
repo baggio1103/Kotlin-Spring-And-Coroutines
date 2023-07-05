@@ -1,4 +1,4 @@
-package com.javajedi.model.repository
+package com.javajedi.repository
 
 import com.javajedi.model.Company
 import kotlinx.coroutines.flow.Flow

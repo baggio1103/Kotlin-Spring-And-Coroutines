@@ -1,8 +1,8 @@
-package com.javajedi.model.service
+package com.javajedi.service
 
 import com.javajedi.model.Company
 import com.javajedi.model.User
-import com.javajedi.model.repository.CompanyRepository
+import com.javajedi.repository.CompanyRepository
 import kotlinx.coroutines.flow.Flow
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
