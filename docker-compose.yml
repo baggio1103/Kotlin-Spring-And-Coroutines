@@ -3,11 +3,11 @@ version: "3.8"
 services:
 
     postgresSQL:
-      container_name: database
+      container_name: company-db
       image: postgres:13.2-alpine
       ports:
         - "6432:5432"
       environment:
-        - POSTGRES_DB=company
+        - POSTGRES_DB=company-db
         - POSTGRES_USER=baggio
         - POSTGRES_PASSWORD=qwerty
