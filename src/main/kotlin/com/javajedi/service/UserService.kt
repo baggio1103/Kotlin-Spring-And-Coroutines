@@ -10,7 +10,7 @@ import org.springframework.web.server.ResponseStatusException
 
 @Service
 class UserService(
-    private val userRepository: UserRepository
+    private val userRepository: UserRepository,
 ) {
 
     suspend fun saveUser(user: User): User {

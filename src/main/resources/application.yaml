@@ -1,9 +1,11 @@
 spring:
   r2dbc:
-    url: r2dbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_MAIN_NAME:company-db}
+    url: r2dbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:company-db}
     username: ${DB_USERNAME:baggio}
     password: ${DB_PASSWORD:qwerty}
     pool:
       validation-query: 'SELECT 1'
       max-life-time: 3m
       max-idle-time: 5m
+server:
+  port: 8888
