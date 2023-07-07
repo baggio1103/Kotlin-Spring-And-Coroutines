@@ -15,7 +15,7 @@ class SearchController(
 ) {
 
     @GetMapping
-    suspend fun searchByName(@RequestParam("name") name: String): Flow<IdNameTypeResponse> {
+    suspend fun searchByName(@RequestParam("name", required = false) name: String?): Flow<IdNameTypeResponse> {
         return searchingService.search(name)
     }
 

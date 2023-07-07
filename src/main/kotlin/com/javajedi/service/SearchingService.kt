@@ -13,11 +13,17 @@ class SearchingService(
     private val companyService: CompanyService
 ) {
 
-    suspend fun search(name: String): Flow<IdNameTypeResponse> {
-        val users = userService.findByNameLike(name).map { it.toIdNameTypeResponse() }
-        val companies = companyService.findByNameLike(name).map { it.toIdNameTypeResponse() }
-        return merge(users, companies)
+    suspend fun search(name: String?): Flow<IdNameTypeResponse> {
+        val users = name?.let {
+            userService.findByNameLike(it)
+        } ?: userService.findAllUsers()
+        val companies = name?.let {
+            companyService.findByNameLike(it)
+        } ?: companyService.findAll()
+        return merge(
+            users.map { it.toIdNameTypeResponse() },
+            companies.map { it.toIdNameTypeResponse() }
+        )
     }
-
 
 }
