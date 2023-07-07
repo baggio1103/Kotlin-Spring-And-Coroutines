@@ -7,5 +7,9 @@ spring:
       validation-query: 'SELECT 1'
       max-life-time: 3m
       max-idle-time: 5m
+  flyway:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:company-db}
+    user: ${DB_USERNAME:baggio}
+    password: ${DB_PASSWORD:qwerty}
 server:
   port: 8888
