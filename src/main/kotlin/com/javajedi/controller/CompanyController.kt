@@ -6,7 +6,6 @@ import com.javajedi.extension.toModel
 import com.javajedi.extension.toResponse
 import com.javajedi.service.CompanyService
 import com.javajedi.service.UserService
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.toList
@@ -32,8 +31,7 @@ class CompanyController(
         val companies = name?.let {
             companyService.findByNameLike(it)
         } ?: companyService.findAll()
-        return companies.map { delay(10)
-            it.toResponse() }
+        return companies.map { it.toResponse() }
     }
 
     @GetMapping("/{id}")
