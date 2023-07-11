@@ -9,7 +9,8 @@ import org.springframework.context.annotation.Configuration
 class FlywayConfiguration(
     @Value("\${spring.flyway.url}") private val url: String,
     @Value("\${spring.flyway.user}") private val user: String,
-    @Value("\${spring.flyway.password}") private val password: String) {
+    @Value("\${spring.flyway.password}") private val password: String
+) {
 
     @Bean(initMethod = "migrate")
     fun flyway(): Flyway {

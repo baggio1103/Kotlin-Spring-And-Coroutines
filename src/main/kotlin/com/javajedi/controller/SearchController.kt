@@ -19,4 +19,20 @@ class SearchController(
         return searchingService.search(name)
     }
 
+    /**
+     * /sync and /async endpoints are
+     * for testing and comparison purposes
+     * between synchronous and asynchronous execution
+     * using Kotlin Coroutines
+     * */
+    @GetMapping("/sync")
+    suspend fun delayedSearchByName(@RequestParam("name", required = false) name: String?): Flow<IdNameTypeResponse> {
+        return searchingService.delayedSyncSearch(name)
+    }
+
+    @GetMapping("/async")
+    suspend fun asyncDelayedSearchByName(@RequestParam("name", required = false) name: String?): Flow<IdNameTypeResponse> {
+        return searchingService.delayedASyncSearch(name)
+    }
+
 }
